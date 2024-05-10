@@ -1,0 +1,24 @@
+- hosts: 127.0.0.1
+  roles:
+    - geerlingguy.docker
+  become: true
+
+- hosts: 127.0.0.1
+  become: true
+  roles:
+    - {role: viasite-ansible.zsh}
+
+- hosts: 127.0.0.1
+  become: true
+  roles:
+    - geerlingguy.git
+    - githubixx.kubectl
+    - gantsign.minikube
+    - geerlingguy.helm
+    - {role: viasite-ansible.zsh, zsh_user: zhenya}
+  vars:
+    minikube_version: '1.33.0'
+    kubectl_version: "1.30.0"
+    helm_version: 'v3.14.0'
+    helm_platform: linux
+    helm_arch: amd64
