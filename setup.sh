@@ -29,7 +29,7 @@ done
 ansible-playbook --ask-become-pass playbook.yml
 
 title "Pyenv postInstall step"
-echo "source /home/zhenya/pyenv/.pyenvrc" >> .zshrc.local 
+echo "source $HOME/pyenv/.pyenvrc" >> .zshrc.local 
 
 title "Setup Git"
 git config --global user.name $NAME && git config --global user.email $EMAIL
