@@ -42,6 +42,9 @@ sudo apt install build-essential libedit-dev htop -y
 title "Setup Docker without sudo"
 ./docker-without-sudo.sh
 
+title "Fix time sync for dual boot systems"
+timedatectl set-local-rtc 1
+
 
 title "Install Golang"
 git clone https://github.com/udhos/update-golang
