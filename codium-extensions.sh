@@ -2,13 +2,20 @@
 set -eu
 
 extensions=(
-    'eamodio.gitlens'
+    'donjayamanne.githistory'
+    'mhutchie.git-graph'
+    'waderyan.gitblame'
+
     'editorconfig.editorconfig'
-    'golang.go'
+    
+    
     'ms-azuretools.vscode-docker'
     'ms-kubernetes-tools.vscode-kubernetes-tools'
+    
+    'golang.go'
     'ms-python.debugpy'
     'ms-python.python'
+    
     'pomdtr.excalidraw-editor'
 )
 
