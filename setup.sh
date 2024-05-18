@@ -19,6 +19,7 @@ roles=(
     'geerlingguy.helm'
     'gantsign.minikube'
     'viasite-ansible.zsh'
+    'staticdev.pyenv'
 )
 
 for role in ${roles[*]}
@@ -27,13 +28,15 @@ do
 done
 ansible-playbook --ask-become-pass playbook.yml
 
+title "Pyenv postInstall step"
+echo "source /home/zhenya/pyenv/.pyenvrc" >> .zshrc.local 
 
 title "Setup Git"
 git config --global user.name $NAME && git config --global user.email $EMAIL
 
 
 title "Install build-essential"
-sudo apt install build-essential -y
+sudo apt install build-essential libedit-dev htop -y
 
 
 title "Setup Docker without sudo"
@@ -53,4 +56,5 @@ sudo snap install insomnia
 
 title "Install Codium and extensions"
 sudo snap install codium --classic && ./codium-extensions.sh
+
 title "Finished! Please, restart your shell."

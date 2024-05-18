@@ -15,10 +15,31 @@
     - githubixx.kubectl
     - gantsign.minikube
     - geerlingguy.helm
-    - {role: viasite-ansible.zsh, zsh_user: zhenya}
+    - {role: viasite-ansible.zsh, zsh_source_for_all_users: yes}
   vars:
     minikube_version: '1.33.0'
     kubectl_version: "1.30.0"
     helm_version: 'v3.14.0'
     helm_platform: linux
     helm_arch: amd64
+
+- hosts: 127.0.0.1
+  roles:
+    - role: staticdev.pyenv
+      vars:
+        pyenv_global:
+          - 3.12.1
+          - 3.11.7
+        pyenv_enable_autocompletion: false
+        pyenv_python_versions:
+          - 3.12.1
+          - 3.11.7
+        pyenv_virtualenvs:
+          - venv_name: latest_v312
+            py_version: 3.12.1
+          - venv_name: latest_v311
+            py_version: 3.11.7
+        pyenv_make_opts: "-j4"
+        pyenv_python_configure_opts: "--enable-optimizations --with-lto --with-ensurepip=upgrade"
+        pyenv_python_cflags: "-march=native -mtune=native"
+        pyenv_profile_task: "-m test.regrtest --pgo -j0"
