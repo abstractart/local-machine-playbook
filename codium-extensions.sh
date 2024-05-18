@@ -5,6 +5,7 @@ extensions=(
     'donjayamanne.githistory'
     'mhutchie.git-graph'
     'waderyan.gitblame'
+    'vivaxy.vscode-conventional-commits'
 
     'editorconfig.editorconfig'
     
