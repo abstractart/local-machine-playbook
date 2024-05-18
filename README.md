@@ -4,11 +4,11 @@ This repo provides ansible playbook with additional scripts which prepares your 
 ## Playbook Includes:
 - Ansible (for tools install) - https://github.com/ansible/ansible
 - Git - https://github.com/geerlingguy/ansible-role-git
-
+- htop, build-essential and libedit-dev packages
 
 Languages:
 - Golang - https://github.com/udhos/update-golang
-- Python with Pyenv
+- Python with Pyenv - https://github.com/staticdev/ansible-role-pyenv
 
 
 Runtime and tools:
@@ -23,6 +23,9 @@ Coding Tools:
 - Codium extensions for Python, Golang, K8s and Docker
 - ZSH on steroids - https://github.com/viasite-ansible/ansible-role-zsh
 
+Apps:
+- Chromium browser
+- Insomnia - https://insomnia.rest/
 ## Quick start
 Just run in terminal:
 ```
