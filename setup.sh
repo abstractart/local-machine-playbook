@@ -39,8 +39,8 @@ title "Install build-essential"
 sudo apt install build-essential libedit-dev htop -y
 
 
-title "Setup Docker without sudo"
-./docker-without-sudo.sh
+title "Setup Docker"
+./docker-post-install.sh
 
 title "Fix time sync for dual boot systems"
 timedatectl set-local-rtc 1
