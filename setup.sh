@@ -55,6 +55,7 @@ rm -rf update-golang
 title "Install Chromium and Insomnia"
 sudo snap install chromium
 sudo snap install insomnia 
+sudo snap install golangci-lint --classic
 
 
 title "Install Codium and extensions"

@@ -1,0 +1,21 @@
+{
+    "git.autofetch": true,
+    "redhat.telemetry.enabled": false,
+
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        "--modules-download-mode=readonly",
+        "--skip-dirs=genproto",
+        "--skip-files=_mock.go",
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "go.formatTool": "gofumpt",
+    "go.formatFlags": [
+        "-extra"
+    ],
+    "go.delveConfig": {
+        "dlvFlags": [
+            "--check-go-version=false"
+        ]
+    }
+}
