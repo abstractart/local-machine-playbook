@@ -18,6 +18,10 @@ extensions=(
     'ms-python.python'
     
     'pomdtr.excalidraw-editor'
+
+
+    'vscode-clangd'
+    'vscode-lldb'
 )
 
 for ext in ${extensions[*]}
