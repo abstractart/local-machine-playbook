@@ -20,8 +20,9 @@ extensions=(
     'pomdtr.excalidraw-editor'
 
 
-    'vscode-clangd'
-    'vscode-lldb'
+    'llvm-vs-code-extensions.vscode-clangd'
+    'vadimcn.vscode-lldb'
+    'ms-vscode.cmake-tools'
 )
 
 for ext in ${extensions[*]}
