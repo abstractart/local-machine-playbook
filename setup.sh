@@ -7,9 +7,15 @@ title() {
     printf "\n${color}$1${nc}\n"
 }
 
-title "Install pip and Ansible"
-wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py --user && python3 -m pip install --user ansible && rm get-pip.py
+sudo apt install pipx -y
 
+title "Install pip and Ansible"
+pipx install --include-deps ansible
+
+title "Install build-essential"
+sudo apt-get update && sudo apt-get install make build-essential libssl-dev \
+    zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
 title "Install Ansible roles"
 roles=(
@@ -19,7 +25,6 @@ roles=(
     'geerlingguy.helm'
     'gantsign.minikube'
     'viasite-ansible.zsh'
-    'staticdev.pyenv'
 )
 
 for role in ${roles[*]}
@@ -28,16 +33,11 @@ do
 done
 ansible-playbook --ask-become-pass playbook.yml
 
-title "Pyenv postInstall step"
+title "Pyenv post-install step"
 echo "source $HOME/pyenv/.pyenvrc" >> .zshrc.local 
 
 title "Setup Git"
 git config --global user.name $NAME && git config --global user.email $EMAIL
-
-
-title "Install build-essential"
-sudo apt install build-essential libedit-dev htop -y
-
 
 title "Setup Docker"
 ./docker-post-install.sh
@@ -45,6 +45,7 @@ title "Setup Docker"
 title "Fix time sync for dual boot systems"
 timedatectl set-local-rtc 1
 
+read
 
 title "Install Golang"
 git clone https://github.com/udhos/update-golang
@@ -56,7 +57,7 @@ title "Install Chromium and Insomnia"
 sudo snap install chromium
 sudo snap install insomnia 
 sudo snap install golangci-lint --classic
-
+sudo snap install htop
 
 title "Install Codium and extensions"
 sudo snap install codium --classic && ./codium-extensions.sh
