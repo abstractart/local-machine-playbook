@@ -8,8 +8,6 @@ This repo provides ansible playbook with additional scripts which prepares your 
 
 Languages:
 - Golang - https://github.com/udhos/update-golang
-- Python with Pyenv - https://github.com/staticdev/ansible-role-pyenv
-
 
 Runtime and tools:
 - Docker - https://github.com/geerlingguy/ansible-role-docker
