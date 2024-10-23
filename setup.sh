@@ -63,3 +63,7 @@ title "Install Codium and extensions"
 sudo snap install codium --classic && ./codium-extensions.sh
 
 title "Finished! Please, restart your shell."
+
+# sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+# sudo add-apt-repository universe
+# sudo apt install libfuse2t64
