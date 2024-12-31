@@ -62,6 +62,9 @@ sudo snap install htop
 title "Install Codium and extensions"
 sudo snap install codium --classic && ./codium-extensions.sh
 
+title "Install Envycontrol"
+./envycontrol.sh
+
 title "Finished! Please, restart your shell."
 
 # sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
