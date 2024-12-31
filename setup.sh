@@ -11,6 +11,9 @@ sudo apt install pipx -y
 
 title "Install pip and Ansible"
 pipx install --include-deps ansible
+pipx install --include-deps ansible-base
+pipx inject ansible-base ansible
+pipx ensurepath
 
 title "Install build-essential"
 sudo apt-get update && sudo apt-get install make build-essential libssl-dev \
@@ -32,9 +35,6 @@ do
     ansible-galaxy role install  $role
 done
 ansible-playbook --ask-become-pass playbook.yml
-
-title "Pyenv post-install step"
-echo "source $HOME/pyenv/.pyenvrc" >> .zshrc.local 
 
 title "Setup Git"
 git config --global user.name $NAME && git config --global user.email $EMAIL
