@@ -67,6 +67,15 @@ git clone https://github.com/udhos/update-golang
 sudo ./update-golang/update-golang.sh
 rm -rf update-golang
 
+title "Install Ruby"
+./rbenv.sh
+
+title "Install Python"
+./pyenv.sh
+
+title "Install Java"
+./java.sh
+
 
 title "Install Chromium and Insomnia"
 sudo snap install chromium
