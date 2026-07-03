@@ -7,13 +7,10 @@ title() {
     printf "\n${color}$1${nc}\n"
 }
 
-sudo apt install pipx -y
 
-title "Install pip and Ansible"
-pipx install --include-deps ansible
-pipx install --include-deps ansible-base
-pipx inject ansible-base ansible
-pipx ensurepath
+title "Install zsh and Ansible"
+curl https://raw.githubusercontent.com/viasite-ansible/ansible-role-zsh/master/install.sh | bash
+
 
 title "Install build-essential"
 sudo apt-get update && sudo apt-get install make \
@@ -42,17 +39,16 @@ roles=(
     'githubixx.kubectl'
     'geerlingguy.helm'
     'gantsign.minikube'
-    'viasite-ansible.zsh'
 )
 
 for role in ${roles[*]}
 do
     ansible-galaxy role install  $role
 done
-ansible-playbook --ask-become-pass playbook.yml
+ansible-playbook -K playbook.yml
 
 title "Setup Git"
-git config --global user.name $NAME && git config --global user.email $EMAIL
+git config --global user.name "$NAME" && git config --global user.email "$EMAIL"
 
 title "Setup Docker"
 ./docker-post-install.sh

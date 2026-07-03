@@ -25,6 +25,10 @@ Apps:
 - Chromium browser
 - Insomnia - https://insomnia.rest/
 ## Quick start
+### Step 1
+Add to host_vars/localhost.yml user password (necessary for docker installation)
+
+### Step 2
 Just run in terminal:
 ```
 NAME="<Your name (for git config)>" EMAIL="(email for git config)" ./setup.sh
